@@ -1,6 +1,8 @@
 package TextBoxx;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.Assert;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TextBox {
@@ -55,5 +57,23 @@ public class TextBox {
 
     public static String verificationOfPermanentAddress(){
         return $x("//p[@id='permanentAddress']").getText();
+    }
+    public static void userInformation(){
+        clickElements();
+        clickTextBox();
+        fullNameDate();
+        email();
+        currentAddressDate();
+        permanentAddress();
+        submit();
+    }
+    public static void comparison(){
+        Assert.assertEquals(verificationName(), "Name:Williams Iron");
+        Assert.assertEquals(verificationOfEmail(), "Email:titan99@sonton.com");
+        Assert.assertEquals(verificationOfCurrentAddress(), "Current Address :Avenue Tissot 0b 6017 Croglio");
+        Assert.assertEquals(verificationOfPermanentAddress(), "Permananet Address :74571 Kivumbi Street");
+    }
+    public static void notCorrectComparison(){
+        Assert.assertEquals(verificationName(), "Name:Williams Jon");
     }
 }

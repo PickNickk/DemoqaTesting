@@ -1,20 +1,22 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class Hook {
 
-    @Before
+    @BeforeEach
     public void setUp() {
         Configuration.startMaximized = true;
         open("https://demoqa.com/");
         System.out.println("Отрытие браузера и сайта");
     }
 
-    @After
+    @AfterEach
     public void close() {
         Selenide.closeWebDriver();
         System.out.println("Закрытие браузера");
