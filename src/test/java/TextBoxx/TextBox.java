@@ -1,7 +1,8 @@
 package TextBoxx;
 
 import com.codeborne.selenide.SelenideElement;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -68,12 +69,12 @@ public class TextBox {
         submit();
     }
     public static void comparison(){
-        Assert.assertEquals(verificationName(), "Name:Williams Iron");
-        Assert.assertEquals(verificationOfEmail(), "Email:titan99@sonton.com");
-        Assert.assertEquals(verificationOfCurrentAddress(), "Current Address :Avenue Tissot 0b 6017 Croglio");
-        Assert.assertEquals(verificationOfPermanentAddress(), "Permananet Address :74571 Kivumbi Street");
+        Assertions.assertEquals(verificationName(), "Name:Williams Iron");
+        Assertions.assertEquals(verificationOfEmail(), "Email:titan99@sonton.com");
+        Assertions.assertEquals(verificationOfCurrentAddress(), "Current Address :Avenue Tissot 0b 6017 Croglio");
+        Assertions.assertEquals(verificationOfPermanentAddress(), "Permananet Address :74571 Kivumbi Street");
     }
     public static void notCorrectComparison(){
-        Assert.assertEquals(verificationName(), "Name:Williams Jon");
+        Assertions.assertEquals(verificationName(), "Name:Williams Jon");
     }
 }
