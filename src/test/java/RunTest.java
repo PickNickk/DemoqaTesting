@@ -1,9 +1,12 @@
+import Hooks.Hook;
 import org.junit.jupiter.api.Test;
-import static TaskMethods.Authorizations.*;
-import static TaskMethods.CreateTask.*;
-import static TaskMethods.OpenTestProject.*;
-import static TaskMethods.NumberOfTasks.*;
-import static TaskMethods.TestSelenium.*;
+import static JiraSteps.MyTaskMethods.*;
+import static JiraSteps.PageUserMethods.*;
+import static JiraSteps.ProjectTestFilterMethods.*;
+import static JiraSteps.ProjectTestPageMethods.*;
+import static JiraSteps.ToolBarButtonsMethods.*;
+import static JiraSteps.ViewProjectPageMethods.clickTestProject;
+
 public class RunTest extends Hook {
     @Test
     public void authorizationTest() {
@@ -13,21 +16,26 @@ public class RunTest extends Hook {
     @Test
     public void openPageProjectTest() {
         transitionToProject();
+        clickTestProject();
         comparisonProject();
     }
     @Test
     public void numberOfTasksTest()  {
-        String task = transitionToAllTasks();
-        comparisonNumberTasks(task);
+        transitionToProject();
+        clickTestProject();
+        transitionToAllTasks();
+        comparisonNumberTasks(getNumberOfTask());
     }
     @Test
     public void taskSeleniumTest()  {
-        findTest();
+        findTestBug();
         comparisonTask();
     }
     @Test
     public void createTaskTest()  {
-        transitionCreateATask();
+        createTask();
+        searchMyTask();
+        checkingTaskStatuses();
     }
 }
 
