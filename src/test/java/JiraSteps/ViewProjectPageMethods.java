@@ -8,6 +8,4 @@ public class ViewProjectPageMethods {
         testProject.click();
         sleep(500);
     }
-
-
 }

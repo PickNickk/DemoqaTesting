@@ -5,7 +5,7 @@ import static JiraSteps.PageUserMethods.*;
 import static JiraSteps.ProjectTestFilterMethods.*;
 import static JiraSteps.ProjectTestPageMethods.*;
 import static JiraSteps.ToolBarButtonsMethods.*;
-import static JiraSteps.ViewProjectPageMethods.clickTestProject;
+import static JiraSteps.ViewProjectPageMethods.*;
 
 public class RunTest extends Hook {
     @Test
@@ -28,7 +28,7 @@ public class RunTest extends Hook {
     }
     @Test
     public void taskSeleniumTest()  {
-        findTestBug();
+        findTestBug("TEST-21967");
         comparisonTask();
     }
     @Test
@@ -38,4 +38,3 @@ public class RunTest extends Hook {
         checkingTaskStatuses();
     }
 }
-

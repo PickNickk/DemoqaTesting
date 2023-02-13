@@ -12,5 +12,4 @@ public class ToolBarButtonsElement {
     public static SelenideElement taskButton = $x("//a[contains(@title,'Поиск')]");
     public static SelenideElement searchTask = $x("//a[text()='Поиск задач']");
     public static SelenideElement createButton = $x("//a[contains(@class,'create-issue')]");
-
 }

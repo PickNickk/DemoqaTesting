@@ -16,5 +16,4 @@ public class ProjectTestPageElements {
     public static SelenideElement complete = $x("//span[text()='Выполнено']");
     public static SelenideElement statusTask = $x("//span[@id='status-val']");
     public static SelenideElement mainPageProject = $x("//a[@id='project-name-val']");
-
 }

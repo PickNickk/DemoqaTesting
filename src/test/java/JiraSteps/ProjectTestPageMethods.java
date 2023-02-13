@@ -61,7 +61,6 @@ public class ProjectTestPageMethods {
     public static void transitionToAllTasks() {
         clickTasks();
         clickAllTasksAndFilters();
-
     }
     public static void comparisonProject(){
         Assertions.assertEquals(getMainPageProject(),"Test");

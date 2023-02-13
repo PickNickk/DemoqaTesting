@@ -17,11 +17,12 @@ public class ToolBarButtonsMethods {
     public static void clickSoftware(){
         software.click();
     }
-    public static void findTestBug() {
+    public static void findTestBug(String taskName) {
         searchField.click();
-        searchField.sendKeys("TEST-21967");
+        searchField.sendKeys(taskName);
         searchField.sendKeys(Keys.ENTER);
     }
+
     public static void clickCreateButton(){
         createButton.click();
     }
@@ -40,5 +41,4 @@ public class ToolBarButtonsMethods {
         clickProjectMenu();
         clickSoftware();
     }
-
 }
