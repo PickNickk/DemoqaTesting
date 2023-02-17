@@ -4,7 +4,7 @@ import io.cucumber.java.ru.Когда;
 import io.cucumber.java.ru.Тогда;
 import org.junit.jupiter.api.Assertions;
 
-public class TestSteps {
+public class Steps {
     int x;
     int y;
     static int result;
@@ -23,5 +23,6 @@ public class TestSteps {
     @Когда("^Общая сумма наличных средств: (.*)$")
     public static void getResult(int res) {
         Assertions.assertEquals(res,result);
+        System.out.println("Всего было снято : "+result+" тысяч рублей");
     }
 }
