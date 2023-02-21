@@ -23,6 +23,6 @@ public class Steps {
     @Когда("^Общая сумма наличных средств: (.*)$")
     public static void getResult(int res) {
         Assertions.assertEquals(res,result);
-        System.out.println("Всего было снято : "+result+" тысяч рублей");
+        System.out.println("Всего было снято: "+result+" тысяч рублей");
     }
 }
