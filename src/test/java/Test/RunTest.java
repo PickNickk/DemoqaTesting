@@ -19,10 +19,8 @@ public class RunTest {
     public void reqResTest(){
         createUser();
     }
-
     @Test
     public void jiraTest(){
         authUser();
     }
 }
-

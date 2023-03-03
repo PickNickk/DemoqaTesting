@@ -17,10 +17,12 @@ public class jiraAPI {
                 .when()
                 .get("/rest/api/2/myself")
                 .then()
+                .log()
+                .all()
                 .extract()
                 .response();
         Assertions.assertEquals(authConfirmation.jsonPath().get("emailAddress").toString(),"todojagami@gmail.com");
 
-        System.out.println(authConfirmation.asString());
+       System.out.println(authConfirmation.asString());
     }
 }
