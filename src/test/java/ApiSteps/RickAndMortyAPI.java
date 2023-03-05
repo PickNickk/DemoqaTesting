@@ -16,7 +16,7 @@ public class RickAndMortyAPI {
     public static String species;
     public static String species2;
     public static String url = "https://rickandmortyapi.com/api";
-    
+
     public static Response getResponse(String targetURL){
         return given()
                 .baseUri(url)
