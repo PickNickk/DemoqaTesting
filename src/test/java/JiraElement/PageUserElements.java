@@ -7,4 +7,5 @@ public class PageUserElements {
     public static SelenideElement getUser(String user){
         return  $x("//dd[contains(text(),'"+user+"')]");
     }
+    public static SelenideElement userInfo = $x("//a[contains(@id,'up_user')]");
 }
