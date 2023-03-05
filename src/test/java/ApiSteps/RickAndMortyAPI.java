@@ -1,5 +1,6 @@
 package ApiSteps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.*;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
@@ -15,6 +16,28 @@ public class RickAndMortyAPI {
     public static String species;
     public static String species2;
     public static String url = "https://rickandmortyapi.com/api";
+    
+    public static Response getResponse(String targetURL){
+        return given()
+                .baseUri(url)
+                .when()
+                .get(targetURL)
+                .then()
+                .extract()
+                .response();
+    }
+    public static String getJsonObj(Response response,String value){
+        return new JSONObject(response.getBody().asString()).get(value).toString();
+    }
+    public static int getJsonObjLength(Response response, String value){
+        return (new JSONObject(response.getBody().asString()).getJSONArray(value).length()-1);
+    }
+    public static Integer getParseString(Response response,String value,int value2){
+        return Integer.parseInt(new JSONObject(response.getBody().asString())
+                .getJSONArray(value).get(value2).toString().replaceAll("[^0-9]",""));
+    }
+
+    @Step("Получение id({id}) персонажа, его локацию и рассу")
     public static void getCharter(String id){
         Response gettingChar = getResponse("/character/"+id);
 
@@ -26,7 +49,7 @@ public class RickAndMortyAPI {
         System.out.println(location);
         System.out.println(species);
     }
-
+    @Step("Получение последнего эпизода песонажа")
     public static void getEpisode(){
         Response gettingLastEpisode = getResponse("/character/"+charterId);
 
@@ -35,6 +58,7 @@ public class RickAndMortyAPI {
 
         System.out.println(lastEpisode);
     }
+    @Step("Получение последнего персонажа в последнем эризоде")
     public static void lastCharterInLastEpisode(){
         Response gettingLastCharterInLastEpisode = getResponse("/episode/"+lastEpisode);
 
@@ -43,6 +67,7 @@ public class RickAndMortyAPI {
 
         System.out.println(lastCharter);
     }
+    @Step("Получение локации и рассы последнего персонажа")
     public static void locAndRaceLastChar(){
         Response gettingLastCharterInLastEpisode = getResponse("/character/"+lastCharter);
 
@@ -52,27 +77,9 @@ public class RickAndMortyAPI {
         System.out.println(location2);
         System.out.println(species2);
     }
+    @Step("Проверка локаций и рассы двух персонажей")
     public static void checkCharactersAndLocation(){
         Assertions.assertNotEquals(location,location2);
         Assertions.assertEquals(species,species2);
-    }
-    public static Response getResponse(String targetURL){
-        return given()
-                .baseUri(url)
-                .when()
-                .get(targetURL)
-                .then()
-                .extract()
-                .response();
-    }
-    public static String getJsonObj(Response response,String value){
-       return new JSONObject(response.getBody().asString()).get(value).toString();
-    }
-    public static int getJsonObjLength(Response response, String value){
-        return (new JSONObject(response.getBody().asString()).getJSONArray(value).length()-1);
-    }
-    public static Integer getParseString(Response response,String value,int value2){
-        return Integer.parseInt(new JSONObject(response.getBody().asString())
-                .getJSONArray(value).get(value2).toString().replaceAll("[^0-9]",""));
     }
 }

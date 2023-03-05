@@ -1,5 +1,6 @@
 package ApiSteps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 
@@ -7,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class jiraAPI {
     public static String URL = "https://edujira.ifellow.ru";
-
+    @Step("Авторизация и проверка пользователя пользователя")
     public static void authUser(){
         Response authConfirmation = given()
                 .baseUri(URL)
@@ -22,7 +23,5 @@ public class jiraAPI {
                 .extract()
                 .response();
         Assertions.assertEquals(authConfirmation.jsonPath().get("emailAddress").toString(),"todojagami@gmail.com");
-
-       System.out.println(authConfirmation.asString());
     }
 }

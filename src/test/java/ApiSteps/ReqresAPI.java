@@ -1,5 +1,6 @@
 package ApiSteps;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import static io.restassured.RestAssured.given;
 
 public class ReqresAPI {
     public static String URL = "https://reqres.in/";
-
+    @Step("Изменение имени,добавление пункта работы,проверка статуса, проверка key и value")
     public static void createUser() {
         Response changeUser = given()
                 .spec(requestSpec(URL))
